@@ -20,3 +20,14 @@
         zephyr,display = &nice_view;
     };
 };
+
+/ {
+    behaviors {
+        /* Claude Code status, invoked by claude/claude_relay.c on the central.
+         * The node name is the split protocol device name: keep it <= 8 chars. */
+        cl_stat: cl_stat {
+            compatible = "zmk,behavior-claude-status";
+            #binding-cells = <1>;
+        };
+    };
+};

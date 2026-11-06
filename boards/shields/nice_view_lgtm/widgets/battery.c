@@ -12,7 +12,7 @@ LV_IMG_DECLARE(bolt);
 #define SQUARE_GAP 1
 
 #define BAR_X 0
-#define BAR_Y 17
+#define BAR_Y 0 /* very top of the screen, above SIG */
 #define BAR_W (2 + BATTERY_SQUARES * (SQUARE_SIZE + SQUARE_GAP) + 1) /* 63 */
 #define BAR_H (2 + SQUARE_GAP * 2 + SQUARE_SIZE)                     /* 15 */
 
@@ -38,10 +38,10 @@ void draw_battery_status(lv_obj_t *canvas, const struct status_state *state) {
                          SQUARE_SIZE, SQUARE_SIZE, &fg_dsc);
     }
 
-    // Charging bolt in the free space of the SIG row
+    // Charging bolt in the free space of the SIG row (below the bar)
     if (state->charging) {
         lv_draw_image_dsc_t img_dsc;
         lv_draw_image_dsc_init(&img_dsc);
-        canvas_draw_img(canvas, 32, 3, &bolt, &img_dsc);
+        canvas_draw_img(canvas, 32, SIG_ROW_Y + 3, &bolt, &img_dsc);
     }
 }

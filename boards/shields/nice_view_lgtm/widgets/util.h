@@ -13,6 +13,9 @@
  */
 #define BUFFER_OFFSET_BOTTOM -92 /* bottom canvas covers portrait y 92..160 */
 
+/* Top canvas rows: battery bar at y 0..14, SIG row at y 18..32 */
+#define SIG_ROW_Y 18
+
 #define CANVAS_SIZE 68
 #define CANVAS_COLOR_FORMAT LV_COLOR_FORMAT_L8
 #define CANVAS_BUF_SIZE \

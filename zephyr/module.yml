@@ -2,3 +2,4 @@ name: nice_view_lgtm
 build:
   settings:
     board_root: .
+    dts_root: .

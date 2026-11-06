@@ -1,0 +1,8 @@
+description: |
+  Shows a Claude Code status on the nice_view_lgtm screens.
+  param1: 0 = idle, 1 = working, 2 = needs you.
+  Global locality, so invoking it on the central also runs it on every peripheral.
+
+compatible: "zmk,behavior-claude-status"
+
+include: one_param.yaml
