@@ -6,9 +6,9 @@
 /*
  * The layer name lives on its own canvas kept in native (landscape) orientation,
  * so a word can run along the long axis of the screen.
- * It covers portrait y 36..142, i.e. native x 18..124.
+ * It covers portrait y 42..142 (below the SIG row), i.e. native x 18..118.
  */
-#define LAYER_CANVAS_W 106
+#define LAYER_CANVAS_W 100
 #define LAYER_CANVAS_H SCREEN_WIDTH
 #define LAYER_CANVAS_X 18
 #define LAYER_CANVAS_BUF_SIZE                                                                      \

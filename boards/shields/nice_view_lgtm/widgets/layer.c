@@ -29,7 +29,7 @@ void draw_layer_status(lv_obj_t *canvas, const struct status_state *state) {
         to_uppercase(text);
     }
 
-    // Montserrat 28 fits ~4 wide capitals in 106 px, 24 fits ~5
+    // Montserrat 28 fits ~4 wide capitals in 100 px, 24 fits ~5
     const lv_font_t *font = strlen(text) <= 4 ? &lv_font_montserrat_28 : &lv_font_montserrat_24;
 
     lv_draw_label_dsc_t label_dsc;
