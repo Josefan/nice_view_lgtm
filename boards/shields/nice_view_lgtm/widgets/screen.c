@@ -145,10 +145,11 @@ static void output_status_update_cb(struct output_status_state state) {
 
 static struct output_status_state output_status_get_state(const zmk_event_t *_eh) {
     return (struct output_status_state){
-        /* The preferred (user-chosen) endpoint, not the selected one: on ZMK main the
-         * selected endpoint is ZMK_TRANSPORT_NONE whenever the BT profile is disconnected
-         * or still open/searching, which would hide those icons. */
-        .selected_endpoint = zmk_endpoint_get_preferred(),
+        /* The endpoint actually in use. On ZMK main it is ZMK_TRANSPORT_NONE when nothing
+         * is connected (BT disconnected or searching, no USB); output.c then shows the BT
+         * profile state. Don't use the preferred endpoint: it defaults to USB even while
+         * typing over BT. */
+        .selected_endpoint = zmk_endpoint_get_selected(),
         .active_profile_index = zmk_ble_active_profile_index(),
         .active_profile_connected = zmk_ble_active_profile_is_connected(),
         .active_profile_bonded = !zmk_ble_active_profile_is_open(),

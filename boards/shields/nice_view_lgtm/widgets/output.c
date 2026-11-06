@@ -53,7 +53,7 @@ void draw_output_status(lv_obj_t *canvas, const struct status_state *state) {
         break;
 
     case ZMK_TRANSPORT_BLE:
-    default:
+    default: /* ZMK_TRANSPORT_NONE: nothing connected, show the BT profile state */
         if (state->active_profile_bonded) {
             if (state->active_profile_connected) {
                 draw_ble_connected(canvas);
