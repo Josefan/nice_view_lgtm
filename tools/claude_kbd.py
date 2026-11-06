@@ -85,13 +85,20 @@ def probe():
     print(f"sent 'idle' to {send('idle')} device(s)")
 
 
+def forget_sent():
+    """A manual send bypasses the state file; make the next hook send again."""
+    SENT_FILE.unlink(missing_ok=True)
+
+
 def main(argv):
     try:
         if argv == ["--probe"]:
+            forget_sent()
             probe()
         elif argv == ["--from-state"]:
             send_from_state()
         elif len(argv) == 1 and argv[0] in STATUSES:
+            forget_sent()
             print(f"sent '{argv[0]}' to {send(argv[0])} device(s)")
         else:
             print(__doc__)
