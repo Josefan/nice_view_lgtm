@@ -53,6 +53,7 @@ void draw_output_status(lv_obj_t *canvas, const struct status_state *state) {
         break;
 
     case ZMK_TRANSPORT_BLE:
+    default:
         if (state->active_profile_bonded) {
             if (state->active_profile_connected) {
                 draw_ble_connected(canvas);
